@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Dustbin Monitoring Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+
+<body>
+
+<header>Smart Dustbin Monitoring Dashboard</header>
+
+<div class="center-buttons">
+  <button onclick="openAddBin()">➕ Add Bin</button>
+  <button onclick="openDeleteBin()">❌ Delete Bin</button>
+  <button onclick="showLevels()">📊 Levels</button>
+  <button onclick="showAlerts()">🚨 Alerts</button>
+  <button onclick="showHistory()">🕒 History</button>
+</div>
+
+<!-- LEVELS -->
+<div id="levelsSection" class="section">
+  <h2>All Bin Levels</h2>
+  <div id="levelsCards" class="bin-container"></div>
+</div>
+
+<!-- ALERTS -->
+<div id="alertsSection" class="section">
+  <h2>Alert Bins (≥ 85%)</h2>
+  <div id="alertCards" class="bin-container"></div>
+</div>
+
+<!-- HISTORY -->
+<div id="historySection" class="section">
+  <h2>Telegram Alert History (Last 7 Days)</h2>
+  <div id="historyList"></div>
+</div>
+
+<!-- MAP -->
+<div id="mapContainer">
+  <div id="map"></div>
+</div>
+
+<!-- ADD BIN MODAL -->
+<div class="modal" id="addModal">
+  <div class="modal-box animate">
+    <h3>➕ Add New Bin</h3>
+    <input id="binId" placeholder="Bin ID">
+    <input id="channelId" placeholder="ThingSpeak Channel ID">
+    <input id="apiKey" placeholder="Read API Key">
+    <input id="lat" placeholder="Latitude">
+    <input id="lon" placeholder="Longitude">
+
+    <div class="modal-actions">
+      <button class="success" onclick="addBin()">Add</button>
+      <button class="danger" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE BIN MODAL -->
+<div class="modal" id="deleteModal">
+  <div class="modal-box animate">
+    <h3>❌ Delete Bin</h3>
+    <input id="deleteId" placeholder="Bin ID">
+
+    <div class="modal-actions">
+      <button class="danger" onclick="deleteBin()">Delete</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="../js/dashboard.js"></script>
+
+</body>
+</html>

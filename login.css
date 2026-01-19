@@ -1,0 +1,36 @@
+body{
+  background: linear-gradient(135deg,#1e3c72,#2a5298);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:Arial;
+}
+
+.login-box{
+  background:white;
+  padding:30px;
+  width:300px;
+  border-radius:10px;
+  text-align:center;
+  animation:slide 1s;
+}
+
+input{
+  width:90%;
+  padding:10px;
+  margin:10px;
+}
+
+button{
+  padding:10px 20px;
+  background:#2a5298;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+@keyframes slide{
+  from{transform:translateY(-40px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
